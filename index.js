@@ -9,6 +9,32 @@ var qoutePointer = 0;
 var batmanQuotes = ["It's not who I am underneath, but what I do that defines me.", "I'm batman!!"
 , "I won't kill you, but I don't have to save you"];
 
+var batmanWaves = ["http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/bat-time_x.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/batman_music_sfx.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/batman_theme_x.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/batmobile_x.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/believe_me.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/can_batman_escape.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/cat-time.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/catwoman.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/criminals.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/didnt_tell_truth.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/dime.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/holy_alphabet.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/holy_ball_and_chain.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/holy_caffeine.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/holy_fruit_salad.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/holy_heart_failure.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/holy_hole.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/holy_las_vegas.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/holy_mashed_potatoes.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/holy_nightmare.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/meet_the_joker.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/ordinary.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/riddler_laugh.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/taken_in.wav",
+"http://www.wavsource.com/snds_2018-01-14_3453803176249356/tv/batman/watch_out.wav"];
+
 restService.use(
   bodyParser.urlencoded({
     extended: true
@@ -26,16 +52,17 @@ restService.post("/echo", function(req, res) {
       : "Seems like some problem. Speak again.";
 
   var response = speech;
-  console.log("This is the speech : "+speech);
   switch (speech) {
     case "batman":
 
-      if(qoutePointer>2)
+      if(qoutePointer>24)
       {
         qoutePointer = 0
       }
-      response = batmanQuotes[qoutePointer];
+      //response = batmanQuotes[qoutePointer];
+      response = '<speak><audio src=' + batmanWaves[qoutePointer] + '">did not get your audio file</audio></speak>';
       qoutePointer++;
+      console.log("This is the speech : "+response);
       break;
     default:
 

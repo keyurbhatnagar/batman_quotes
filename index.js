@@ -5,6 +5,10 @@ const bodyParser = require("body-parser");
 
 const restService = express();
 
+var qoutePointer = 0;
+var batmanQuotes = ["It's not who I am underneath, but what I do that defines me.", "I'm batman!!"
+, "I won't kill you, but I don't have to save you"];
+
 restService.use(
   bodyParser.urlencoded({
     extended: true
@@ -20,9 +24,23 @@ restService.post("/echo", function(req, res) {
     req.body.result.parameters.echoText
       ? req.body.result.parameters.echoText
       : "Seems like some problem. Speak again.";
+
+  var response = speech;
+  switch (speech) {
+    case "batman":
+      if(qoutePointer>2)
+      {
+        qoutePointer = 0
+      }
+      response = batmanQuotes[qoutePointer];
+      qoutePointer++;
+      break;
+    default:
+
+  }
   return res.json({
     speech: speech,
-    displayText: speech,
+    displayText: response,
     source: "batman-quotes"
   });
 });

@@ -1,0 +1,14 @@
+{
+  "name": "batman-quotes",
+  "version": "1.0.0",
+  "description": "Batman Trilogy Quotes",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Keyur Bhatnagar",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
+  }
+}

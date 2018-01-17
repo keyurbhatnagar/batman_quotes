@@ -26,8 +26,10 @@ restService.post("/echo", function(req, res) {
       : "Seems like some problem. Speak again.";
 
   var response = speech;
+  console.log("This is the speech : "+speech);
   switch (speech) {
     case "batman":
+
       if(qoutePointer>2)
       {
         qoutePointer = 0
@@ -39,7 +41,7 @@ restService.post("/echo", function(req, res) {
 
   }
   return res.json({
-    speech: speech,
+    speech: response,
     displayText: response,
     source: "batman-quotes"
   });

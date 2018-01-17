@@ -60,7 +60,9 @@ restService.post("/echo", function(req, res) {
         qoutePointer = 0
       }
       //response = batmanQuotes[qoutePointer];
-      response = '<speak><audio src="' + batmanWaves[qoutePointer] + '">did not get your audio file</audio></speak>';
+      //response = '<speak><audio src="' + batmanWaves[qoutePointer] + '">did not get your audio file</audio></speak>';
+      response =
+        '<speak><audio src="https://actions.google.com/sounds/v1/cartoon/slide_whistle.ogg">did not get your audio file</audio></speak>';
       qoutePointer++;
       console.log("This is the speech : "+response);
       break;

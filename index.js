@@ -13,20 +13,6 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-restService.post("/echo", function(req, res) {
-  var speech =
-    req.body.result &&
-    req.body.result.parameters &&
-    req.body.result.parameters.echoText
-      ? req.body.result.parameters.echoText
-      : "Seems like some problem. Speak again.";
-  return res.json({
-    speech: speech,
-    displayText: speech,
-    source: "batman-quotes"
-  });
-});
-
 restService.post("/audio", function(req, res) {
   var speech = "";
   switch (req.body.result.parameters.AudioSample.toLowerCase()) {
@@ -116,7 +102,7 @@ restService.post("/audio", function(req, res) {
   return res.json({
     speech: speech,
     displayText: speech,
-    source: "webhook-echo-sample"
+    source: "batman-quotes"
   });
 });
 
@@ -126,7 +112,7 @@ restService.post("/video", function(req, res) {
       '<speak>  <audio src="https://www.youtube.com/watch?v=VX7SSnvpj-8">did not get your MP3 audio file</audio></speak>',
     displayText:
       '<speak>  <audio src="https://www.youtube.com/watch?v=VX7SSnvpj-8">did not get your MP3 audio file</audio></speak>',
-    source: "webhook-echo-sample"
+    source: "batman-quotes"
   });
 });
 
